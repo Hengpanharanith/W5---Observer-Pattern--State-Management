@@ -7,13 +7,13 @@ class ColorCounter extends ChangeNotifier {
 
   void incrementRedTapCount() {
     redTapCount++;
-    print('Red tap count incremented to $redTapCount');
+    print('Red tap $redTapCount');
     notifyListeners();
   }
 
   void incrementBlueTapCount() {
     blueTapCount++;
-    print('Blue tap count incremented to $blueTapCount');
+    print('Blue tap $blueTapCount');
     notifyListeners();
     //Handle for listern to the state change
   }

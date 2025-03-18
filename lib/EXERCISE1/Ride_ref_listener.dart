@@ -13,6 +13,10 @@ class RidePreferencesService {
     _listeners.add(listener);
   }
 
+  void removeListener() {
+    _listeners.removeLast();
+  }
+
   void notifyListeners() {
     if (_currentPreference == null) return;
     for (var listener in _listeners) {
@@ -34,11 +38,22 @@ class ConsoleLogger implements RidePreferencesListener {
 }
 
 void main() {
-  RidePreferencesService riderservice = RidePreferencesService();
-  riderservice.addListener(ConsoleLogger());
-      riderservice.setCurrentPreference(RidePreference(
+  RidePreferencesService riderservice1 = RidePreferencesService();
+  RidePreferencesService riderservice2 = RidePreferencesService();
+
+  riderservice1.addListener(ConsoleLogger());
+  riderservice1.setCurrentPreference(RidePreference(
       departure: Location(name: 'Siem Reap', country: Country.cambodia),
       arrival: Location(name: 'Battambang', country: Country.cambodia),
       departureDate: DateTime.now(),
       requestedSeats: 1));
+
+  riderservice2.addListener(ConsoleLogger());
+  riderservice2.setCurrentPreference(RidePreference(
+    departure: Location(name: 'Kompot', country: Country.cambodia),
+    arrival: Location(name: 'Battambang', country: Country.cambodia),
+    departureDate: DateTime.now(),
+    requestedSeats: 1));
+    //remove rideservice1
+
 }
