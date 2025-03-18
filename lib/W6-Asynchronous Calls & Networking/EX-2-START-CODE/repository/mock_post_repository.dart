@@ -12,7 +12,7 @@ class MockPostRepository extends PostRepository {
       return Post(
         id: 25,
         title: 'Who is the best',
-        description: 'teacher ronan',
+        description: 'Ranith',
       );
     });
   }
